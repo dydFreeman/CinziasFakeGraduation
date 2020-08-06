@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExamsService } from '../exams.service';
 
 @Component({
   selector: 'app-exams',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExamsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private examsService: ExamsService) { }
 
   ngOnInit(): void {
   }
 
+  addExam() {
+    this.examsService.addExams({ 
+      voto: 25,
+      iscritto: true,
+      convalidato: false,
+      titolo: "Cazzologia"
+     })
+  }
+
+}
+
+export  class ExamModel {
+  voto: number;
+  iscritto: boolean;
+  convalidato: boolean;
+  titolo: string;
 }

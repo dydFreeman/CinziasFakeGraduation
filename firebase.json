@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist/CinziasFakeGraduation",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+

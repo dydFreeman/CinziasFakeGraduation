@@ -57,6 +57,7 @@ const firebaseConfig = {
   messagingSenderId: "342987835921",
   appId: "1:342987835921:web:00471749f0a4c14cda7fb0"
 };
+
 @NgModule({
   declarations: [
     AppComponent,
