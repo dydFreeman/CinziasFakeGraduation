@@ -11,7 +11,7 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class ExamsComponent implements OnInit {
 
-  public exams: any[] = [];
+  public exams: ExamModel[] = [];
   displayedColumns: string[] = ['titolo', 'iscritto', 'convalidato', 'voto'];
 
   color: ThemePalette = 'accent';
@@ -40,13 +40,9 @@ export class ExamsComponent implements OnInit {
     });
   }
 
-  addExam() {
-    this.examsService.addExams({
-      voto: 25,
-      iscritto: true,
-      convalidato: false,
-      titolo: "Cazzologia"
-    })
+  checkCondition() {
+    var invalidExam = this.exams.find(exams => exams.convalidato == false);
+    return invalidExam;
   }
 
 }
@@ -56,4 +52,5 @@ export class ExamModel {
   iscritto: boolean;
   convalidato: boolean;
   titolo: string;
+  id: string;
 }
