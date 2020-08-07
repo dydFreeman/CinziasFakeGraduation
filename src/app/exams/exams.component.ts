@@ -12,7 +12,7 @@ import { ThemePalette } from '@angular/material/core';
 export class ExamsComponent implements OnInit {
 
   public exams: ExamModel[] = [];
-  displayedColumns: string[] = ['titolo', 'iscritto', 'convalidato', 'voto'];
+  displayedColumns: string[] = ['titolo', 'iscritto', 'convalidato', 'voto', 'ord'];
 
   color: ThemePalette = 'accent';
 
@@ -22,11 +22,14 @@ export class ExamsComponent implements OnInit {
   toggle(event) {
     this.afsStore.collection("exams");
     this.afsStore.collection("exams").doc(event.id).update(event);
+
+    this.afsStore.collection("exams",ref => ref.orderBy('ord', 'asc'));
+
     console.log(this.exams, event);
   }
 
   ngOnInit(): void {
-    this.afsStore.collection('exams').snapshotChanges().subscribe((data) => {
+    this.afsStore.collection('exams', ref => ref.orderBy('ord', 'asc')).snapshotChanges().subscribe((data) => {
       this.exams = [];
       data.forEach((d) => {
         let exam: any = d.payload.doc.data();
