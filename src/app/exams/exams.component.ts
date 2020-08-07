@@ -36,7 +36,7 @@ export class ExamsComponent implements OnInit {
         }
         this.exams.push(exam);
       })
-      
+
     });
   }
 
@@ -53,4 +53,5 @@ export class ExamModel {
   convalidato: boolean;
   titolo: string;
   id: string;
+  ord: number;
 }
