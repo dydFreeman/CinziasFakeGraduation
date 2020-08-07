@@ -47,6 +47,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AuthGuard } from './auth.guard';
+import {MatCarouselModule} from "@ngmodule/material-carousel";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDLJ7A7ytbZNe5_s6cLtyxTh3Gt8FpfOw4",
@@ -102,6 +103,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    MatCarouselModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public slides;
+  constructor() {
+   this.slides = [
+     {image: '../assets/slide-home/1.jpg'},
+     {image: '../assets/slide-home/2.jpg'},
+     {image: '../assets/slide-home/3.jpg'},
+     {image: '../assets/slide-home/4.jpg'},
+     {image: '../assets/slide-home/5.jpg'}
+    ];
+  }
 
   ngOnInit(): void {
   }

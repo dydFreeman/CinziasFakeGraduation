@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "CinziasFakeGraduation"
+  "defaultProject": "CinziasFakeGraduation",
+  "cli": {
+    "analytics": "b5c4615b-3275-4a81-9a15-5536a471aea6"
+  }
 }
