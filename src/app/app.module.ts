@@ -48,6 +48,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ExamsComponent } from './exams/exams.component';
 import { AuthGuard } from './auth.guard';
 import {MatCarouselModule} from "@ngmodule/material-carousel";
+import { ErrorComponent } from './error/error.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDLJ7A7ytbZNe5_s6cLtyxTh3Gt8FpfOw4",
@@ -65,7 +66,8 @@ const firebaseConfig = {
     LoginComponent,
     HomeComponent,
     UserProfileComponent,
-    ExamsComponent
+    ExamsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
