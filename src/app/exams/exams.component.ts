@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExamsService } from '../exams.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {ThemePalette} from '@angular/material/core';
+import { ThemePalette } from '@angular/material/core';
 
 
 @Component({
@@ -11,7 +11,7 @@ import {ThemePalette} from '@angular/material/core';
 })
 export class ExamsComponent implements OnInit {
 
-  public exams: ExamModel[] = [];
+  public exams: any[] = [];
   displayedColumns: string[] = ['titolo', 'iscritto', 'convalidato', 'voto'];
 
   color: ThemePalette = 'accent';
@@ -19,25 +19,39 @@ export class ExamsComponent implements OnInit {
 
   constructor(private examsService: ExamsService, private afsStore: AngularFirestore) { }
 
+  toggle(event) {
+    this.afsStore.collection("exams");
+    this.afsStore.collection("exams").doc(event.id).update(event);
+    console.log(this.exams, event);
+  }
+
   ngOnInit(): void {
-    this.afsStore.collectionGroup('exams').valueChanges().subscribe((data: ExamModel[]) => {
-      console.log("EXAMS", data);
-      this.exams = data;
-    })
+    this.afsStore.collection('exams').snapshotChanges().subscribe((data) => {
+      this.exams = [];
+      data.forEach((d) => {
+        let exam: any = d.payload.doc.data();
+        exam = {
+          ...exam,
+          id: d.payload.doc.id
+        }
+        this.exams.push(exam);
+      })
+      
+    });
   }
 
   addExam() {
-    this.examsService.addExams({ 
+    this.examsService.addExams({
       voto: 25,
       iscritto: true,
       convalidato: false,
       titolo: "Cazzologia"
-     })
+    })
   }
 
 }
 
-export  class ExamModel {
+export class ExamModel {
   voto: number;
   iscritto: boolean;
   convalidato: boolean;
