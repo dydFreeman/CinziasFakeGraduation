@@ -12,7 +12,7 @@ import { ThemePalette } from '@angular/material/core';
 export class ExamsComponent implements OnInit {
 
   public exams: ExamModel[] = [];
-  displayedColumns: string[] = ['titolo', 'iscritto', 'convalidato', 'voto', 'ord'];
+  displayedColumns: string[] = ['titolo', 'iscritto', 'convalidato', 'voto'];
 
   color: ThemePalette = 'accent';
 
