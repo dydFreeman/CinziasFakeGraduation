@@ -98,6 +98,7 @@ const firebaseConfig = {
     MatBadgeModule,
     MatExpansionModule,
     MatRadioModule,
+    MatSlideToggleModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,

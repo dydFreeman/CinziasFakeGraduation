@@ -2,17 +2,17 @@
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
+html, body { height: 100%; width: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .example-spacer {
     flex: 1 1 auto;
 }
   
-.main-div{
-    // height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
+// .main-div{
+//     // height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex: 1;
+// }

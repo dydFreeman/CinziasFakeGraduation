@@ -1,4 +1,66 @@
-<mat-card>
-    ESAMI!
-    <button (click)="addExam()">AGGIUNGI</button>
-</mat-card>
+<!-- <div style="display: flex; flex-direction: column;">
+    <div style="display: flex; font-weight: 600;">
+        <div style="display: flex; flex: 1">
+            TITOLO
+        </div>
+        <div style="display: flex; flex: 1">
+            ISCRITTO
+        </div>
+        <div style="display: flex; flex: 1">
+            CONVALIDATO
+        </div>
+        <div style="display: flex; flex: 1">
+            VOTO
+        </div>
+    </div>
+    <div *ngFor="let exam of exams" style="display: flex">
+        <div style="display: flex; flex: 1">
+            {{ exam.titolo }}
+        </div>
+        <div style="display: flex; flex: 1">
+            {{ exam.iscritto }}
+        </div>
+        <div style="display: flex; flex: 1">
+            {{ exam.convalidato }}
+        </div>
+        <div style="display: flex; flex: 1">
+            {{ exam.voto }}
+        </div>
+    </div>
+</div> -->
+<div style="display: flex; padding: 20px">
+    <mat-table [dataSource]="exams" class="mat-elevation-z8" style="width: 100%;">
+        <!-- Position Column -->
+        <ng-container matColumnDef="titolo">
+            <mat-header-cell *matHeaderCellDef> TITOLO </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.titolo}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="iscritto">
+            <mat-header-cell *matHeaderCellDef> ISCRITTO </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <mat-slide-toggle [color]="color" [checked]="element.iscritto">
+                </mat-slide-toggle>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="convalidato">
+            <mat-header-cell *matHeaderCellDef> CONVALIDATO </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <mat-slide-toggle [color]="color" [checked]="element.convalidato" disabled>
+                </mat-slide-toggle>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="voto">
+            <mat-header-cell *matHeaderCellDef> VOTO </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.voto}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
