@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ExamModel} from "../exams/exams.component";
+import {ExamsService} from "../exams.service";
+import {AngularFirestore} from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-home',
@@ -6,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  public exams: ExamModel[] = [];
   public slides;
-  constructor() {
+  constructor(private examsService: ExamsService, private afsStore: AngularFirestore) {
    this.slides = [
      {image: '../assets/slide-home/1.jpg'},
      {image: '../assets/slide-home/2.jpg'},
@@ -19,6 +22,28 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.afsStore.collection('exams', ref => ref.orderBy('ord', 'asc')).snapshotChanges().subscribe((data) => {
+      this.exams = [];
+      data.forEach((d) => {
+        let exam: any = d.payload.doc.data();
+        exam = {
+          ...exam,
+          id: d.payload.doc.id
+        }
+        this.exams.push(exam);
+      })
+
+    });
+  }
+
+  getNumeroEsamiIscritto(): number{
+    let counter: number = 0;
+    for (let exam of this.exams){
+      if (exam.iscritto){
+        counter++;
+      }
+    }
+    return counter;
   }
 
 }

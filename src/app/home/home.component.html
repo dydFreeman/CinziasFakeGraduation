@@ -1,4 +1,4 @@
-<mat-carousel
+<mat-card style="padding:0px;"><mat-carousel
   timings="250ms ease-in"
   [autoplay]="true"
   interval="5000"
@@ -22,6 +22,13 @@
   >
   </mat-carousel-slide>
 </mat-carousel>
-
+</mat-card>
 <span></span>
 
+<mat-card style="margin: 10px;">Benvenuto/a nella tua area personale, <b>Cinzia Traballoni</b><br />
+Sei attualmente iscritta al corso di ... </mat-card>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile><mat-card>Esami sostenuti: {{this.exams.length}}</mat-card></mat-grid-tile>
+  <mat-grid-tile><mat-card>Esami da sostenere</mat-card></mat-grid-tile>
+</mat-grid-list>
