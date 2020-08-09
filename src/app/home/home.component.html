@@ -26,9 +26,10 @@
 <span></span>
 
 <mat-card style="margin: 10px;">Benvenuto/a nella tua area personale, <b>Cinzia Traballoni</b><br />
-Sei attualmente iscritta al corso di ... </mat-card>
+Sei attualmente iscritta al corso di <b>Polemiche e Pipponi</b> </mat-card>
 
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile><mat-card>Esami sostenuti: {{this.exams.length}}</mat-card></mat-grid-tile>
-  <mat-grid-tile><mat-card>Esami da sostenere</mat-card></mat-grid-tile>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile><mat-card>Esami iscritti: {{this.getNumeroEsamiIscritto()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
+  <mat-grid-tile><mat-card>Esami convalidati: {{this.getNumeroEsamiConvalidato()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
+  <mat-grid-tile><mat-card>Esami da sostenere: {{this.exams.length-this.getNumeroEsamiConvalidato()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
 </mat-grid-list>

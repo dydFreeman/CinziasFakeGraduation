@@ -46,4 +46,14 @@ export class HomeComponent implements OnInit {
     return counter;
   }
 
+  getNumeroEsamiConvalidato(): number{
+    let counter: number = 0;
+    for (let exam of this.exams){
+      if (exam.convalidato){
+        counter++;
+      }
+    }
+    return counter;
+  }
+
 }
