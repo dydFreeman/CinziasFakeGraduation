@@ -8,7 +8,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .example-spacer {
     flex: 1 1 auto;
 }
-  
+
+.footer {
+  margin-top: 30px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
 // .main-div{
 //     // height: 100vh;
 //     display: flex;
