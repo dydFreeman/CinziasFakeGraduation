@@ -48,7 +48,29 @@ export class ExamsComponent implements OnInit {
     return invalidExam;
   }
 
+  getNumeroEsamiIscritto(): number{
+    let counter: number = 0;
+    for (let exam of this.exams){
+      if (exam.iscritto){
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  getNumeroEsamiConvalidato(): number{
+    let counter: number = 0;
+    for (let exam of this.exams){
+      if (exam.convalidato){
+        counter++;
+      }
+    }
+    return counter;
+  }
+
 }
+
+
 
 export class ExamModel {
   voto: number;

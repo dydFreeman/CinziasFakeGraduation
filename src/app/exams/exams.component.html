@@ -28,7 +28,16 @@
         </div>
     </div>
 </div> -->
+<mat-card style="margin: 10px;">Benvenuto/a nella tua area personale<br />
+  Sei attualmente iscritto/a al corso di <b>Polemiche e Pipponi</b> </mat-card>
+<mat-grid-list cols="3" rowHeight="8:1">
+  <mat-grid-tile><mat-card>Esami iscritti: {{this.getNumeroEsamiIscritto()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
+  <mat-grid-tile><mat-card>Esami convalidati: {{this.getNumeroEsamiConvalidato()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
+  <mat-grid-tile><mat-card>Esami da sostenere: {{this.exams.length-this.getNumeroEsamiConvalidato()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
+</mat-grid-list>
 <div style="display: flex; padding: 20px">
+
+
 
         <mat-table [dataSource]="exams" class="mat-elevation-z8" style="width: 100%;">
             <ng-container matColumnDef="titolo">

@@ -12,6 +12,8 @@ export class ErrorComponent implements OnInit {
   ngOnInit(): void {
     var toolbar = document.getElementById("toolbar");
     toolbar.style.display = "none";
+    var footer = document.getElementById("footer");
+    footer.style.display ="none";
     var container = document.getElementById("container");
     container.style["justifyContent"] = "center";
     container.style.background = "#95c2de";

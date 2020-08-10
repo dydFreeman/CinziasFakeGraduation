@@ -23,13 +23,10 @@
   </mat-carousel-slide>
 </mat-carousel>
 </mat-card>
-<span></span>
-
-<mat-card style="margin: 10px;">Benvenuto/a nella tua area personale, <b>Cinzia Traballoni</b><br />
-Sei attualmente iscritta al corso di <b>Polemiche e Pipponi</b> </mat-card>
-
-<mat-grid-list cols="3" rowHeight="2:1">
-  <mat-grid-tile><mat-card>Esami iscritti: {{this.getNumeroEsamiIscritto()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
-  <mat-grid-tile><mat-card>Esami convalidati: {{this.getNumeroEsamiConvalidato()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
-  <mat-grid-tile><mat-card>Esami da sostenere: {{this.exams.length-this.getNumeroEsamiConvalidato()}}/{{this.exams.length}}</mat-card></mat-grid-tile>
+<mat-grid-list cols="3" rowHeight="5:1">
+  <mat-grid-tile [colspan]="3" [rowspan]="1"><mat-card>1</mat-card></mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="3"><mat-card>2</mat-card></mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="2"><mat-card>3</mat-card></mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="2"><mat-card>4</mat-card></mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="2"><mat-card>5</mat-card></mat-grid-tile>
 </mat-grid-list>
